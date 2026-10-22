@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "dev": "tailwindcss -i ./CP5-Refatoracao/src/input.css -o ./CP5-Refatoracao/css/styles.css --watch",
+    "build": "tailwindcss -i ./CP5-Refatoracao/src/input.css -o ./CP5-Refatoracao/css/styles.css"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3"
+  }
+}
