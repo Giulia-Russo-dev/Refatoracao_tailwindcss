@@ -1,5 +1,6 @@
 /*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -8,7 +9,20 @@
       "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-sm: 1.2rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-lg: clamp(2.5rem, 5vw + 1rem, 6rem);
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
     --radius-md: 1rem;
+    --radius-lg: 0.5rem;
+    --blur-md: 12px;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --font-body: "Urbanist", sans-serif;
@@ -18,6 +32,7 @@
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
     --spacing-xl: 4rem;
+    --animate-slide: slide 20s linear infinite;
   }
 }
 @layer base {
@@ -169,28 +184,272 @@
   }
 }
 @layer utilities {
-  .col-2 {
-    grid-column: 2;
+  .absolute {
+    position: absolute;
   }
-  .row-2 {
-    grid-row: 2;
+  .relative {
+    position: relative;
   }
-  .container {
+  .bottom-md {
+    bottom: var(--spacing-md);
+  }
+  .left-md {
+    left: var(--spacing-md);
+  }
+  .z-1 {
+    z-index: 1;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mx-sm {
+    margin-inline: var(--spacing-sm);
+  }
+  .my-md {
+    margin-block: var(--spacing-md);
+  }
+  .my-xl {
+    margin-block: var(--spacing-xl);
+  }
+  .mb-md {
+    margin-bottom: var(--spacing-md);
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .h-20 {
+    height: calc(var(--spacing) * 20);
+  }
+  .h-full {
+    height: 100%;
+  }
+  .min-h-dvh {
+    min-height: 100dvh;
+  }
+  .w-1\/2 {
+    width: calc(1 / 2 * 100%);
+  }
+  .w-9\/10 {
+    width: calc(9 / 10 * 100%);
+  }
+  .w-\[90\%\] {
+    width: 90%;
+  }
+  .w-auto {
+    width: auto;
+  }
+  .w-full {
     width: 100%;
-    @media (width >= 40rem) {
-      max-width: 40rem;
+  }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+  .animate-slide {
+    animation: var(--animate-slide);
+  }
+  .auto-rows-\[400px\] {
+    grid-auto-rows: 400px;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .gap-md {
+    gap: var(--spacing-md);
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
+  .rounded-t-lg {
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
+  }
+  .rounded-t-md {
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-light {
+    border-color: var(--color-light);
+  }
+  .bg-dark {
+    background-color: var(--color-dark);
+  }
+  .bg-light {
+    background-color: var(--color-light);
+  }
+  .bg-cover {
+    background-size: cover;
+  }
+  .bg-no-repeat {
+    background-repeat: no-repeat;
+  }
+  .object-cover {
+    object-fit: cover;
+  }
+  .p-md {
+    padding: var(--spacing-md);
+  }
+  .p-sm {
+    padding: var(--spacing-sm);
+  }
+  .px-lg {
+    padding-inline: var(--spacing-lg);
+  }
+  .py-sm {
+    padding-block: var(--spacing-sm);
+  }
+  .pb-md {
+    padding-bottom: var(--spacing-md);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-black {
+    color: var(--color-black);
+  }
+  .text-dark {
+    color: var(--color-dark);
+  }
+  .text-light {
+    color: var(--color-light);
+  }
+  .no-underline {
+    text-decoration-line: none;
+  }
+  .opacity-60 {
+    opacity: 60%;
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-500 {
+    --tw-duration: 500ms;
+    transition-duration: 500ms;
+  }
+  @media (hover: hover) {
+    .group-hover\:\[animation-play-state\:paused\]:is(:where(.group):hover *) {
+      animation-play-state: paused;
     }
-    @media (width >= 48rem) {
-      max-width: 48rem;
+    .hover\:opacity-100:hover {
+      opacity: 100%;
     }
-    @media (width >= 64rem) {
-      max-width: 64rem;
+  }
+  @media (width >= 680px) {
+    .min-\[680px\]\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    @media (width >= 80rem) {
-      max-width: 80rem;
+  }
+  @media (width >= 1024px) {
+    .min-\[1024px\]\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    @media (width >= 96rem) {
-      max-width: 96rem;
+  }
+  @media (width >= 40rem) {
+    .sm\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (width >= 64rem) {
+    .lg\:col-span-2 {
+      grid-column: span 2 / span 2;
+    }
+    .lg\:col-span-4 {
+      grid-column: span 4 / span 4;
+    }
+    .lg\:row-span-2 {
+      grid-row: span 2 / span 2;
+    }
+    .lg\:w-4\/5 {
+      width: calc(4 / 5 * 100%);
+    }
+    .lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .lg\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  @media (width >= 80rem) {
+    .xl\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+      --tw-duration: initial;
     }
   }
 }
